@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Assignment_2
 {
-    class Staff
+    class Student
     {
-
+        public string Degree;
     }
 }

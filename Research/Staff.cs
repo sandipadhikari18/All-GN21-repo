@@ -6,7 +6,17 @@ using System.Threading.Tasks;
 
 namespace Assignment_2
 {
-    class Student
+    class Staff
     {
+        public float ThreeYearAverage()
+        {
+
+        }
+
+        public float Performance()
+        {
+
+        }
+
     }
 }
