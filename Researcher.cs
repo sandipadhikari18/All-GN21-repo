@@ -17,7 +17,7 @@ namespace Assignment_2
         private string Email;
 
 
-        public position GetCurrentJob()
+        public Position GetCurrentJob()
         {
 
         }
@@ -27,7 +27,7 @@ namespace Assignment_2
 
         }
 
-        public Date CurrentJobStart()
+        public DateTime CurrentJobStart()
         {
 
         }
@@ -37,7 +37,7 @@ namespace Assignment_2
 
         }
 
-        public Date EarliestStart()
+        public DateTime EarliestStart()
         {
 
         }

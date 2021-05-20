@@ -8,5 +8,6 @@ namespace Assignment_2
 {
     class Staff
     {
+
     }
 }
