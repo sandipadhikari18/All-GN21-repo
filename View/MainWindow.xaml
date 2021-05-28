@@ -5,10 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Assignment_2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
-    </Grid>
+        Title="MainWindow" Height="800" Width="900">
+    <DockPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250*" MinWidth="150"/>
+                <ColumnDefinition Width="500*" MinWidth="300"/>
+                <ColumnDefinition Width="300*" MinWidth="200"/>
+            </Grid.ColumnDefinitions>
+            <local:ResearcherListView x:Name="ResearcherList"/>
+            <local:ResearcherDetailsView x:Name="ResearcherDetails" Grid.Column="1"/>
+            <local:PublicationDetailsView x:Name="PublicationDetails" Grid.Column="2"/>
+        </Grid>
+    </DockPanel>
 </Window>
+    <<!--Here, everything needs to be connected but it isnot connecting this way-->
 
     

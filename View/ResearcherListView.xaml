@@ -1,12 +1,31 @@
-﻿<Window x:Class="Assignment_2.View.ResearcherListView"
+﻿<UserControl x:Class="Assignment_2.View.ResearcherListView"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Assignment_2.View"
         mc:Ignorable="d"
-        Title="ResearcherListView" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
-</Window>
+        d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <ObjectDataProvider x:Key="levels"
+                            ObjectType="{x:Type sys:Enum}"
+                            MethodName="GetValues">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="research:Level" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </UserControl.Resources>
+    <DockPanel>
+        <StackPanel Orientation="Vertical" DockPanel.Dock="Top">
+            <DockPanel>
+                <Label Content="Filter by name:" HorizontalAlignment="Left"/>
+                <TextBox x:Name="txtNameFilter" KeyUp="txtNameFilter_KeyUp"/>
+            </DockPanel>
+            <DockPanel>
+                <Label Content="Filter by level:"/>
+                <ComboBox x:Name="cmbLevelFilter" ItemsSource="{Binding Source={StaticResource levels}}" SelectedIndex="0" SelectionChanged="cmbLevelFilter_SelectionChanged"/>
+            </DockPanel>
+        </StackPanel>
+        <ListBox x:Name="lstResearchers" ItemsSource="{Binding Source={StaticResource researchersList}}" SelectionChanged="lstResearchers_SelectionChanged" />
+    </DockPanel>
+</UserControl>
