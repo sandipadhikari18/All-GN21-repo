@@ -3,21 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows;
 using MySql.Data.MySqlClient;
 
 
 namespace Assignment_2.Database
 {
-    class ERDAdapter
+    abstract class ERDAdapter
     {
 
-        private const string db = "";
-        private const string user = "";
-        private const string pass = "";
-        private const string server = "";
+        private const string db = "kit206";
+        private const string user = "kit206";
+        private const string pass = "kit206";
+        private const string server = "alacritas.cis.utas.edu.au";
 
         private static MySqlConnection conn = null;
+
+        private static bool reportingErrors = true;
 
         private static MySqlConnection GetConnection()
         {
@@ -49,7 +51,7 @@ namespace Assignment_2.Database
             {
                 conn.Open();
 
-                MySqlCommand cmd = new MySqlCommand("SELECT given_name, family_name, title, level, type FROM researcher");
+                MySqlCommand cmd = new MySqlCommand("SELECT given_name, family_name, title, level, type FROM researcher", conn);
                 rdr = cmd.ExecuteReader();
 
                 while( rdr.Read())
@@ -85,7 +87,8 @@ namespace Assignment_2.Database
             }
             catch (MySqlException e)
             {
-                Console.WriteLine("Error connecting to database: " + e);
+                //Console.WriteLine("Error connecting to database: " + e);
+                ReportError("loading staff", e);
             }
             finally
             {
@@ -101,7 +104,14 @@ namespace Assignment_2.Database
 
             return researchers;
         }
-
+        private static void ReportError(string msg, Exception e)
+        {
+            if (reportingErrors)
+            {
+                MessageBox.Show("An error occurred while " + msg + ". Try again later.\n\nError Details:\n" + e,
+                    "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
         //public static Researcher fetchFullResearcherDetails(int id)
         //{
 

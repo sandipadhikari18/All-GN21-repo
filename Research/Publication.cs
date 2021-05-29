@@ -9,13 +9,13 @@ namespace Assignment_2
     public enum OutputType { Conference, Journal, Other };
     class Publication
     {
-        private string DOI;
-        private string Title;
-        private string Authors;
-        private DateTime Year;
-        private OutputType Type;
-        private string CiteAs;
-        private DateTime Available;
+        private string DOI { get; set; }
+        private string Title { get; set; }
+        private string Authors { get; set; }
+        private DateTime Year { get; set; }
+        private OutputType Type { get; set; }
+        private string CiteAs { get; set; }
+        private DateTime Available { get; set; }
 
         //public int Age()
         //{

@@ -13,7 +13,7 @@
                 <ColumnDefinition Width="500*" MinWidth="300"/>
                 <ColumnDefinition Width="300*" MinWidth="200"/>
             </Grid.ColumnDefinitions>
-            <local:ResearcherListView x:Name="ResearcherListView" Grid.Column="1"/>
+            <local:ResearcherListView x:Name="ResearcherListView" Grid.Column="0"/>
             
         </Grid>
     </DockPanel>

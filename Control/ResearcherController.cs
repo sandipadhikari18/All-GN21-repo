@@ -3,20 +3,32 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Assignment_2.Database; 
+using Assignment_2.Database;
+using System.Collections.ObjectModel;
 
 namespace Assignment_2.Control
 {
     class ResearcherController
     {
+        private List<Researcher> researchers;
 
-        public void LoadResearchers()
+        private ObservableCollection<Researcher> visibleResearchers;
+
+        public ResearcherController()
         {
             // Calls fetchbasicresearcherdetails, returns values to researcherlistview
+ 
+            researchers = ERDAdapter.fetchBasicResearcherDetails();
+            visibleResearchers = new ObservableCollection<Researcher>(researchers); //this list we will modify later
 
-            List<Researcher> researcherList; 
-            researcherList = ERDAdapter.fetchBasicResearcherDetails();
         }
+
+        public ObservableCollection<Researcher> GetViewableList()
+        {
+            return visibleResearchers;
+        }
+
+
 
         public void FilterBy(EmploymentLevel level)
         {
@@ -27,7 +39,7 @@ namespace Assignment_2.Control
         {
 
         }
-        public void LoadReearcherDetails()
+        public void LoadResearcherDetails()
         {
 
         }

@@ -9,9 +9,9 @@ namespace Assignment_2
     public enum EmploymentLevel { Student, A, B, C, D, E };
     class Position
     {
-        public DateTime Start;
-        public DateTime End;
-        public EmploymentLevel level;
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
+        public EmploymentLevel level { get; set; }
 
         //public string Title()
         //{

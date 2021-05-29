@@ -8,6 +8,6 @@ namespace Assignment_2
 {
     class Student : Researcher
     {
-        public string Degree;
+        public string Degree { get; set; }
     }
 }

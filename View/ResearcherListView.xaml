@@ -7,10 +7,16 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="250">
     <DockPanel>
-        <Grid>
-            <Label Content="Search Name" HorizontalAlignment="Left" Height="29" Margin="10,16,0,0" VerticalAlignment="Top" Width="81"/>
-            <TextBox HorizontalAlignment="Left" Height="34" Margin="112,11,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="128"/>
-
-        </Grid>
+        <StackPanel DockPanel.Dock="Top" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+            <DockPanel>
+                <Label Content="Search Name" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
+                <TextBox  TextWrapping="Wrap"/>
+            </DockPanel>
+            <DockPanel>
+                <Label Content="Show:"/>
+                <ComboBox/>
+            </DockPanel>
+        </StackPanel>
+        
     </DockPanel>
 </UserControl>
