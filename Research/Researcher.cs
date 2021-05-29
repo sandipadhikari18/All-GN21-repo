@@ -8,48 +8,49 @@ namespace Assignment_2
 {
     class Researcher
     {
-        private int id;
-        private string GivenName;
-        private string FamilyName;
-        private string Title;
-        private string School;
-        private string Campus;
-        private string Email;
+        public int id;
+        public string GivenName;
+        public string FamilyName;
+        public string Title;
+        public string School;
+        public string Campus;
+        public string Email;
+        public Position ResearcherPosition;
 
 
-        public Position GetCurrentJob()
-        {
+        //public Position GetCurrentJob()
+        //{
 
-        }
+        //}
 
-        public string CurrentJobTitle()
-        {
+        //public string CurrentJobTitle()
+        //{
 
-        }
+        //}
 
-        public DateTime CurrentJobStart()
-        {
+        //public DateTime CurrentJobStart()
+        //{
 
-        }
+        //}
 
-        public Position GetEarliestJob()
-        {
+        //public Position GetEarliestJob()
+        //{
 
-        }
+        //}
 
-        public DateTime EarliestStart()
-        {
+        //public DateTime EarliestStart()
+        //{
 
-        }
+        //}
 
-        public float Tenure()
-        {
+        //public float Tenure()
+        //{
 
-        }
+        //}
 
-        public int PublicationsCount()
-        {
+        //public int PublicationsCount()
+        //{
 
-        }
+        //}
     }
 }

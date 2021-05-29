@@ -8,9 +8,9 @@ namespace Assignment_2.Control
 {
     class PublicationsController
     {
-        public Publication[] loadPublicationsFor(Researcher r)
-        {
-            
-        } 
+        //public List<Publication> loadPublicationsFor(Researcher r)
+        //{
+
+        //}
     }
 }

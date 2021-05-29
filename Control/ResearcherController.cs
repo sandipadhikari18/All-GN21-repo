@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Assignment_2.Database; 
 
 namespace Assignment_2.Control
 {
@@ -11,7 +12,10 @@ namespace Assignment_2.Control
 
         public void LoadResearchers()
         {
+            // Calls fetchbasicresearcherdetails, returns values to researcherlistview
 
+            List<Researcher> researcherList; 
+            researcherList = ERDAdapter.fetchBasicResearcherDetails();
         }
 
         public void FilterBy(EmploymentLevel level)

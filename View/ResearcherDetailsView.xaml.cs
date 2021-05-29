@@ -17,7 +17,7 @@ namespace Assignment_2.View
     /// <summary>
     /// Interaction logic for ResearcherDetailsView.xaml
     /// </summary>
-    public partial class ResearcherDetailsView : Window
+    public partial class ResearcherDetailsView : UserControl
     {
         public ResearcherDetailsView()
         {

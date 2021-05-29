@@ -10,6 +10,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Assignment_2.View
@@ -17,7 +18,7 @@ namespace Assignment_2.View
     /// <summary>
     /// Interaction logic for ResearcherListView.xaml
     /// </summary>
-    public partial class ResearcherListView : Window
+    public partial class ResearcherListView : UserControl
     {
         public ResearcherListView()
         {
