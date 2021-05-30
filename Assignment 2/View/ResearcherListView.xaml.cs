@@ -40,5 +40,22 @@ namespace Assignment_2.View
             }
             
         }
+
+        private void researcherNameBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                res.FilterByName(researcherNameBox.Text);
+            }
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (res != null) // Was bugging out because it would try setting to any by default before res had been initialised, this should fix
+            {
+                EmploymentLevel l = (EmploymentLevel)e.AddedItems[0];
+                res.FilterBy(l);
+            }
+        }
     }
 }

@@ -2,12 +2,22 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:controllers="clr-namespace:Assignment_2.Control"
+             xmlns:research="clr-namespace:Assignment_2.Research"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              StartupUri="View/Main.xaml">
     <Application.Resources>
         <controllers:ResearcherController x:Key="researcherController"/>
         <ObjectDataProvider x:Key="researcherList"
                             ObjectInstance="{StaticResource researcherController}"
                             MethodName="GetViewableList">
+        </ObjectDataProvider>
+
+        <ObjectDataProvider x:Key="researcherLevels"
+                            ObjectType="{x:Type sys:Enum}"
+                            MethodName="GetValues">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="research:EmploymentLevel"/>
+            </ObjectDataProvider.MethodParameters>
         </ObjectDataProvider>
     </Application.Resources>
 </Application>

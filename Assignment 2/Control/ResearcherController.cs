@@ -21,6 +21,8 @@ namespace Assignment_2.Control
         private ResearcherDetailsView detailsView = null;
         private ResearcherDetailsView DetailsView { get { if (detailsView == null) { detailsView = (Application.Current.MainWindow as Main).ResearcherDetailsView; } return detailsView;}}
 
+        private string filterLowerName = "";
+        private EmploymentLevel filterEmploymentLevel = EmploymentLevel.Any;
         public static List<Researcher> Generate()
         {
             return new List<Researcher>() {
@@ -47,12 +49,35 @@ namespace Assignment_2.Control
 
         public void FilterBy(EmploymentLevel level)
         {
-
+            filterEmploymentLevel = level;
+            RunFilter();
         }
 
         public void FilterByName(string name)
         {
+            filterLowerName = name.ToLower();
+            RunFilter();
+        }
 
+        public void RunFilter()
+        {
+            // Im sure theres a better way to do this instead of writing basically same linq twice
+            if (filterEmploymentLevel == EmploymentLevel.Any)
+            {
+                var selected = from r in researchers
+                               where (r.GivenName.ToLower().Contains(filterLowerName) || r.FamilyName.ToLower().Contains(filterLowerName))
+                               select r;
+                visibleResearchers.Clear();
+                selected.ToList().ForEach(visibleResearchers.Add);
+            }
+            else
+            {
+                var selected = from r in researchers
+                               where r.ResearcherPosition.level == filterEmploymentLevel && (r.GivenName.ToLower().Contains(filterLowerName) || r.FamilyName.ToLower().Contains(filterLowerName))
+                               select r;
+                visibleResearchers.Clear();
+                selected.ToList().ForEach(visibleResearchers.Add);
+            }
         }
         public void LoadResearcherDetails(Researcher r)
         {

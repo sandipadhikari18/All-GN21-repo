@@ -10,11 +10,11 @@
         <StackPanel DockPanel.Dock="Top" HorizontalAlignment="Stretch" VerticalAlignment="Top">
             <DockPanel>
                 <Label Content="Search Name" HorizontalAlignment="Left"  VerticalAlignment="Top"/>
-                <TextBox  TextWrapping="Wrap"/>
+                <TextBox x:Name="researcherNameBox" KeyUp="researcherNameBox_KeyUp" TextWrapping="Wrap"/>
             </DockPanel>
             <DockPanel>
                 <Label Content="Show:"/>
-                <ComboBox/>
+                <ComboBox ItemsSource="{Binding Source={StaticResource researcherLevels}}" SelectedIndex="0" SelectionChanged="ComboBox_SelectionChanged"/>
             </DockPanel>
         </StackPanel>
         <ListBox x:Name="researcherListBox" ItemsSource="{Binding Source={StaticResource researcherList}}" SelectionChanged="reasearcherListBox_SelectionChanged" />

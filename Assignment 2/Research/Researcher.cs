@@ -4,6 +4,7 @@ using System.IO.Packaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Navigation;
 
 namespace Assignment_2.Research
 {
@@ -25,16 +26,21 @@ namespace Assignment_2.Research
 
         public string CurrentJobTitle { get { return ResearcherPosition.Title;  } }
 
+        public double Tenure { get { return CalcTenure(); } }
 
         //public Position GetEarliestJob()
         //{
 
         //}
 
-        //public float Tenure()
-        //{
+        public double CalcTenure()
+        {
+            DateTime localDate = DateTime.Now;
+            TimeSpan t = localDate.Subtract(EarliestStartDate);
+            double tenureD = Math.Round(t.Days / 365.0, 1) ;
 
-        //}
+            return tenureD;
+        }
 
         //public int PublicationsCount()
         //{

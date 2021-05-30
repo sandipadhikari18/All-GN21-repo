@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assignment_2.Research
 {
-    public enum EmploymentLevel { Student, A, B, C, D, E };
+    public enum EmploymentLevel { Any, Student, A, B, C, D, E }; // Had to add any to make it appear as option in combobox
     public class Position
     {
         public DateTime Start { get; set; }
