@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assignment_2.Research
 {
-    class Staff : Researcher
+    public class Staff : Researcher
     {
         //public float ThreeYearAverage()
         //{

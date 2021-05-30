@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Assignment_2.Research
 {
-    class Student : Researcher
+    public class Student : Researcher
     {
         public string Degree { get; set; }
+
+        public int SupervisorID { get; set; }
     }
 }

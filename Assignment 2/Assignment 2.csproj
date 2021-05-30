@@ -69,6 +69,9 @@
     <Compile Include="View\Main.xaml.cs">
       <DependentUpon>Main.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ResearcherDetailsView.xaml.cs">
+      <DependentUpon>ResearcherDetailsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ResearcherListView.xaml.cs">
       <DependentUpon>ResearcherListView.xaml</DependentUpon>
     </Compile>
@@ -79,6 +82,10 @@
     <Compile Include="Control\ResearcherController.cs" />
     <Compile Include="Database\ERDAdapter.cs" />
     <Page Include="View\Main.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ResearcherDetailsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

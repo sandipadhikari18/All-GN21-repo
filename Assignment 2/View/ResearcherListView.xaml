@@ -17,6 +17,6 @@
                 <ComboBox/>
             </DockPanel>
         </StackPanel>
-
+        <ListBox x:Name="researcherListBox" ItemsSource="{Binding Source={StaticResource researcherList}}" SelectionChanged="reasearcherListBox_SelectionChanged" />
     </DockPanel>
 </UserControl>

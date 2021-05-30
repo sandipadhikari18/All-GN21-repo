@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Assignment_2.Research
 {
     public enum OutputType { Conference, Journal, Other };
-    class Publication
+    public class Publication
     {
         private string DOI { get; set; }
         private string Title { get; set; }

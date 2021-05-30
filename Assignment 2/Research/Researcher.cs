@@ -1,44 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO.Packaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Assignment_2.Research
 {
-    class Researcher
+    public class Researcher
     {
-        public int id;
+        public int id { get; set; }
         public string GivenName { get; set; }
         public string FamilyName { get; set; }
         public string Title { get; set; }
         public string School { get; set; }
         public string Campus { get; set; }
         public string Email { get; set; }
+
+        public string Photo { get; set; }
         public Position ResearcherPosition { get; set; }
+        public DateTime EarliestStartDate { get; set; }
 
+        public DateTime CurrentStartDate { get { return ResearcherPosition.Start; } }
 
-        //public Position GetCurrentJob()
-        //{
+        public string CurrentJobTitle { get { return ResearcherPosition.Title;  } }
 
-        //}
-
-        //public string CurrentJobTitle()
-        //{
-
-        //}
-
-        //public DateTime CurrentJobStart()
-        //{
-
-        //}
 
         //public Position GetEarliestJob()
-        //{
-
-        //}
-
-        //public DateTime EarliestStart()
         //{
 
         //}
@@ -52,5 +40,10 @@ namespace Assignment_2.Research
         //{
 
         //}
+
+        public override string ToString()
+        {
+            return string.Format("{0}, {1} ({2})", FamilyName, GivenName, Title);
+        }
     }
 }
