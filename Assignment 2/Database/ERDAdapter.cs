@@ -12,16 +12,19 @@ namespace Assignment_2.Database
 {
     abstract class ERDAdapter
     {
-
+        // MySQL Connection Login Variables
         private const string db = "kit206";
         private const string user = "kit206";
         private const string pass = "kit206";
         private const string server = "alacritas.cis.utas.edu.au";
 
+        // This holds the MySQL Connector that is initialised by GetConnection
         private static MySqlConnection conn = null;
 
+        // Change to false to hide 
         private static bool reportingErrors = true;
 
+        // Used to get but not open a connection to the MySQL Database
         private static MySqlConnection GetConnection()
         {
             if (conn == null)
@@ -39,6 +42,8 @@ namespace Assignment_2.Database
             return (T)Enum.Parse(typeof(T), value);
         }
 
+        // Fetches the list of researchers to be displayed by the ResearcherListView
+        // Only fetches the basic values needed for the ResearcherListView, not full values used by ResearcherDetailsView
         public static List<Researcher> fetchBasicResearcherDetails()
         {
             // name, title, current employment level
@@ -58,17 +63,7 @@ namespace Assignment_2.Database
                 while (rdr.Read())
                 {
                     //Researcher object, to be added to the list
-                    //Console.WriteLine("Reading");
                     Researcher res;
-                    //res = new Researcher
-                    //{
-                    //    GivenName = rdr.GetString(0),
-                    //    FamilyName = rdr.GetString(1),
-                    //    Title = rdr.GetString(2),
-                    //    ResearcherPosition = new Position { Start = rdr.GetDateTime(4), level = EmploymentLevel.Student }
-                    //};
-                    // Check to see if Student or Staff
-                    // Manuallt set level to "student" for students as mysql table doesnt have "student" in level enum
                     if (rdr.GetString(5) == "Student")
                     {
                         res = new Student
@@ -114,6 +109,7 @@ namespace Assignment_2.Database
 
             return researchers;
         }
+        // Small function for reporting MySQL errors as a messagebox, taken from tutorial code
         private static void ReportError(string msg, Exception e)
         {
             if (reportingErrors)
@@ -124,6 +120,8 @@ namespace Assignment_2.Database
         }
 
         // Was simpler to pass in old res and update instead of just id and making a new one
+        // This function takes and existing Researcher "res" and fills out more of its values so it can be displayed in the
+        // ResearcherDetailsView
         public static Researcher fetchFullResearcherDetails(Researcher res)
         {
            
@@ -166,8 +164,7 @@ namespace Assignment_2.Database
             }
             catch (MySqlException e)
             {
-                //Console.WriteLine("Error connecting to database: " + e);
-                ReportError("loading staff", e);
+                ReportError("loading staff details", e);
             }
             finally
             {
@@ -183,6 +180,7 @@ namespace Assignment_2.Database
 
             return res;
         }
+
 
         //public static Researcher completeResearcherDetails(Researcher r)
         //{

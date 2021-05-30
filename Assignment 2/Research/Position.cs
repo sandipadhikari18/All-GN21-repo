@@ -6,15 +6,16 @@ using System.Threading.Tasks;
 
 namespace Assignment_2.Research
 {
-    public enum EmploymentLevel { Any, Student, A, B, C, D, E }; // Had to add any to make it appear as option in combobox
+    public enum EmploymentLevel { Any, Student, A, B, C, D, E }; // Had to add "Any" to make it appear as option in combobox in the ResearcherListView
     public class Position
     {
         public DateTime Start { get; set; }
         public DateTime End { get; set; }
         public EmploymentLevel level { get; set; }
-
         public string Title { get { return ToTitle(level); } }
 
+
+        // Converts the Employment Level value to its corresponding real title
         public string ToTitle(EmploymentLevel l)
        {
             if (l == EmploymentLevel.A)

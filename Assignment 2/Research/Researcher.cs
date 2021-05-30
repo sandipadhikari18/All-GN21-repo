@@ -10,6 +10,7 @@ namespace Assignment_2.Research
 {
     public class Researcher
     {
+        
         public int id { get; set; }
         public string GivenName { get; set; }
         public string FamilyName { get; set; }
@@ -21,18 +22,14 @@ namespace Assignment_2.Research
         public string Photo { get; set; }
         public Position ResearcherPosition { get; set; }
         public DateTime EarliestStartDate { get; set; }
-
+        // Returns the start date of the currently assigned position
         public DateTime CurrentStartDate { get { return ResearcherPosition.Start; } }
-
+        // Returns the title of the current position
         public string CurrentJobTitle { get { return ResearcherPosition.Title;  } }
-
+        // Returns a calculated tenure
         public double Tenure { get { return CalcTenure(); } }
 
-        //public Position GetEarliestJob()
-        //{
-
-        //}
-
+        // Used to calculate the Tenure as a double based on the time since employment to the local computers current time
         public double CalcTenure()
         {
             DateTime localDate = DateTime.Now;
@@ -47,6 +44,7 @@ namespace Assignment_2.Research
 
         //}
 
+        // ToString so the ResearcherListView will display each researcher in the correct format
         public override string ToString()
         {
             return string.Format("{0}, {1} ({2})", FamilyName, GivenName, Title);

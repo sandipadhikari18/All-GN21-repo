@@ -26,7 +26,7 @@ namespace Assignment_2.View
             InitializeComponent();
         }
 
-
+        // Used to update the datacontext of the view so the values of the selected researcher are displayed
         public void FillOutDetails(Researcher r)
         {
             this.DataContext = r;

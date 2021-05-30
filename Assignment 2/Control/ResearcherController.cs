@@ -13,52 +13,50 @@ namespace Assignment_2.Control
 {
     class ResearcherController
     {
+        // This is the private list of all researchers retrieved at the start of the program
         private List<Researcher> researchers;
-
+        // This is the observable collection of researchers that is visible to the Views and is linked to what is displayed in ResearcherListView
         private ObservableCollection<Researcher> visibleResearchers;
-
-
+           
+        // Had to initialise the ResearcherDetailsView so that we could pass the researcher to display to it
         private ResearcherDetailsView detailsView = null;
         private ResearcherDetailsView DetailsView { get { if (detailsView == null) { detailsView = (Application.Current.MainWindow as Main).ResearcherDetailsView; } return detailsView;}}
 
+        // Variables that handle how the ResearcherListView is filtered
         private string filterLowerName = "";
         private EmploymentLevel filterEmploymentLevel = EmploymentLevel.Any;
-        public static List<Researcher> Generate()
-        {
-            return new List<Researcher>() {
-                new Student { GivenName = "Jane", FamilyName = "Doe", ResearcherPosition = new Position { level = EmploymentLevel.Student } },
-                new Student { GivenName = "John", FamilyName = "Doe", ResearcherPosition = new Position { level = EmploymentLevel.Student } },
-            };
-        }
+
+        // Generates the observable list of researchers by calling fetchBasicResearcherDetails from the ERDAdapter
         public ResearcherController()
         {
             // Calls fetchbasicresearcherdetails, returns values to researcherlistview
 
             researchers = ERDAdapter.fetchBasicResearcherDetails();
-            //researchers = Generate();
             visibleResearchers = new ObservableCollection<Researcher>(researchers); //this list we will modify later
 
         }
-
+        // Needed for the view to get the opbservable list
         public ObservableCollection<Researcher> GetViewableList()
         {
             return visibleResearchers;
         }
 
 
-
+        // FilterBy is called when changing the "Level" filter and calls the RunFilter function after setting the filter employment level
         public void FilterBy(EmploymentLevel level)
         {
             filterEmploymentLevel = level;
             RunFilter();
         }
-
+        // FilterByName is used to change the searched for researcher name
+        // Had to use ToLower so the search box wouldn't be case sensitive as thats kind of a pain
         public void FilterByName(string name)
         {
             filterLowerName = name.ToLower();
             RunFilter();
         }
 
+        // This calls the LINQ expressions to actually filter the list and update the observable list to this new filtered one
         public void RunFilter()
         {
             // Im sure theres a better way to do this instead of writing basically same linq twice
@@ -79,6 +77,7 @@ namespace Assignment_2.Control
                 selected.ToList().ForEach(visibleResearchers.Add);
             }
         }
+        // Loads the full details for the given researcher and passes them off to the ResearcherDetailsView
         public void LoadResearcherDetails(Researcher r)
         {
             r = ERDAdapter.fetchFullResearcherDetails(r);

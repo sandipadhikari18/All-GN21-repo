@@ -30,7 +30,7 @@ namespace Assignment_2.View
             res = Application.Current.FindResource("researcherController") as ResearcherController;
         }
 
-
+        // Tells the researchercontroller that a researcher has been selected in the list
         private void reasearcherListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (e.AddedItems.Count > 0)
@@ -40,7 +40,7 @@ namespace Assignment_2.View
             }
             
         }
-
+        // When you press enter while searching by a researchers name, the entered text will be used to filter the researchers shown in the listbox
         private void researcherNameBox_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
@@ -48,7 +48,7 @@ namespace Assignment_2.View
                 res.FilterByName(researcherNameBox.Text);
             }
         }
-
+        // When the Level filter is changed this will call the ResearcherControll and get it to filter the researchers shown in the listbox
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (res != null) // Was bugging out because it would try setting to any by default before res had been initialised, this should fix
